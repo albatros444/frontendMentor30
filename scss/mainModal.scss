@@ -1,0 +1,281 @@
+.darkBackgr {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: hsl(0, 0%, 0%, 50%);
+}
+.mainModalDarkBgr {
+  .mainModal {
+    display: block;
+    max-height: calc(100vh - 50px);
+    width: 730px;
+    padding: 47px;
+    border-radius: 8px;
+    background-color: white;
+    overflow-y: auto;
+    .fbox1 {
+      position: relative;
+      margin-bottom: 22px;
+      .closeModalIcon {
+        position: absolute;
+        top: -17px;
+        right: -17px;
+        cursor: pointer;
+        svg {
+          opacity: 0.4;
+          transition: all 0.12s ease-out;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .modalText {
+      color: var(--dGray);
+      margin-bottom: 39px;
+    }
+    .modalCard {
+      overflow: hidden;
+      max-height: auto;
+      margin-bottom: 25px;
+      border: 1px solid hsl(0, 1%, 86%);
+      border-radius: 8px;
+
+      &:has(input:checked) {
+        border: 2px solid var(--modCyan);
+        .pledgeEnter {
+          opacity: 1;
+          height: 95px;
+          padding: 27px;
+        }
+      }
+      .topBox {
+        padding: 30px 20px 0 27px;
+
+        .fbox2 {
+          display: flex;
+          .radioBox {
+            ///////////////radio inputs////
+            input[type="radio"] {
+              position: absolute;
+              opacity: 0;
+              + .radio-label {
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.12s ease-in-out;
+                span {
+                  margin-left: 15px;
+                  font-weight: 500;
+                  color: var(--modCyan);
+                }
+                &:before {
+                  content: "";
+                  display: inline-block;
+                  position: relative;
+                  width: 1.5em;
+                  height: 1.5em;
+                  margin-right: 25px;
+                  border-radius: 100%;
+                  border: 1px solid #cacaca;
+                  vertical-align: top;
+                  cursor: pointer;
+                  text-align: center;
+                  background: #ffffff;
+                  transition: all 250ms ease;
+                }
+                &:hover {
+                  color: var(--modCyan);
+
+                  &:before {
+                    border: 1px solid var(--modCyan);
+                  }
+                }
+              }
+
+              &:checked {
+                + .radio-label {
+                  &:before {
+                    background-color: var(--modCyan);
+                    box-shadow: inset 0 0 0 5px #ffffff;
+                    border: 1px solid #cacaca;
+                  }
+                }
+              }
+              &:disabled {
+                + .radio-label {
+                  &:before {
+                    border-color: #eeeded;
+                    background: #ffffff;
+                  }
+                }
+              }
+            }
+
+            /// ///////////
+          }
+          .fbox3 {
+            padding-bottom: 6px;
+            margin-right: 5px;
+            p:first-child {
+              font-weight: 700;
+              font-size: 18px;
+            }
+            p:last-child {
+              margin-left: 10px;
+              padding-bottom: 1px;
+              font-size: 15px;
+              color: var(--dGray);
+            }
+          }
+        }
+        .modalCardText {
+          margin-left: 50px;
+          margin-top: 12px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          letter-spacing: 0.005em;
+          line-height: 1.9;
+          color: var(--dGray);
+        }
+      }
+
+      .pledgeEnter {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        border-top: 1px solid hsl(0, 1%, 85%);
+        transition: all 0.1s ease-in-out;
+
+        p {
+          color: var(--dGray);
+        }
+        .fbox4 {
+          width: 220px;
+          .inputBox {
+            position: relative;
+            input {
+              width: 100px;
+              height: 48px;
+              padding-left: 40px;
+              padding-bottom: 2px;
+              border-radius: 24px;
+              border: 1px solid hsl(0, 0%, 88%);
+              font-weight: 600;
+              color: black;
+              &:focus {
+                border: 1px solid var(--modCyan);
+              }
+            }
+            p {
+              position: absolute;
+              top: 16px;
+              left: 25px;
+              font-size: 13px;
+              font-weight: 700;
+              color: hsl(0, 1%, 73%);
+            }
+          }
+          button {
+            display: inline-block;
+            padding: 0;
+            width: 105px;
+            height: 48px;
+            border-radius: 24px;
+            border: none;
+            outline: inherit;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background: var(--modCyan);
+            &:hover {
+              background: var(--dCyan);
+            }
+          }
+        }
+      }
+    }
+    .disabled {
+      border: 1px solid hsl(0, 3%, 93%);
+      .topBox {
+        .fbox2 {
+          .radioBox {
+            input[type="radio"] {
+              + .radio-label {
+                color: var(--dGray);
+                span {
+                  color: hsl(176, 40%, 77%);
+                }
+              }
+            }
+          }
+          .fbox3 {
+            p:first-child {
+              color: var(--dGray);
+            }
+            p:last-child {
+              color: hsl(0, 0%, 78%);
+            }
+          }
+        }
+        .modalCardText {
+          color: hsl(0, 0%, 68%);
+        }
+      }
+    }
+  }
+}
+
+//////thanks modal//////////////
+.thanksModaldarkBackgr {
+  display: none;
+  .thanksModal {
+    width: 540px;
+    height: 450px;
+    padding: 0 40px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    img {
+      height: 90px;
+      margin-top: 50px;
+      margin-bottom: 48px;
+    }
+    h3 {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+    p {
+      line-height: 1.8;
+      color: var(--dGray);
+      margin-bottom: 30px;
+    }
+    button {
+      display: inline-block;
+      width: 105px;
+      height: 45px;
+      padding: 0;
+      border: none;
+      border-radius: 23px;
+      outline: inherit;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: var(--modCyan);
+      transition: all 0.12s ease-in-out;
+      &:hover {
+        background: var(--dCyan);
+      }
+    }
+  }
+}

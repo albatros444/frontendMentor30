@@ -1,0 +1,107 @@
+.monRiserCard {
+  position: relative;
+  width: 730px;
+  height: 268px;
+  margin: -92px auto 24px;
+  border: 1px solid hsl(0, 0%, 95%);
+  border-radius: 8px;
+  text-align: center;
+  background-color: white;
+  .logo {
+    position: absolute;
+    left: calc(50% - 29px);
+    top: -29px;
+  }
+  h1 {
+    padding-top: 55px;
+    margin-bottom: 15px;
+    font-size: 28px;
+  }
+  p {
+    color: var(--dGray);
+    margin-bottom: 40px;
+  }
+  &__box {
+    width: 632px;
+    margin: 0 auto;
+    button {
+      display: inline-block;
+      height: 56px;
+      padding: 0;
+      border: none;
+      outline: inherit;
+      border-radius: 55px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.1s ease-in-out;
+    }
+    .backProjButton {
+      width: 205px;
+      color: white;
+      background-color: var(--modCyan);
+      &:hover {
+        background-color: var(--dCyan);
+      }
+    }
+    .bookmarkButton {
+      position: relative;
+      width: auto;
+      padding-left: 72px;
+      padding-right: 25px;
+      padding-top: 2px;
+      text-align: start;
+      background-color: hsl(0, 0%, 96%);
+      color: var(--dGray);
+
+      svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .circle {
+          fill: #2f2f2f;
+          transition: all 0.1s ease-in-out;
+        }
+        .flag {
+          fill: #b1b1b1;
+        }
+      }
+      p {
+        padding-top: 16px;
+        font-weight: 700;
+      }
+      &:hover {
+        svg {
+          .circle {
+            fill: #6b6b6b;
+          }
+        }
+      }
+    }
+    .bookmarked {
+      background-color: hsl(176, 10%, 97%);
+      svg {
+        .circle {
+          fill: var(--dCyan);
+        }
+        .flag {
+          fill: white;
+        }
+      }
+      p {
+        color: hsl(176, 92%, 28%);
+      }
+      &:hover {
+        svg {
+          .circle {
+            fill: var(--dCyan);
+          }
+        }
+      }
+    }
+  }
+}

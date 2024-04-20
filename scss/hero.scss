@@ -1,0 +1,21 @@
+.hero {
+  height: 400px;
+  background: url(/images/image-hero-desktop.jpg);
+  .shadowLinear {
+    height: 130px;
+    background: linear-gradient(hsl(0, 0%, 0%, 60%), transparent);
+    .navbar {
+      padding: 48px 165px 0;
+      .links {
+        width: 225px;
+        a {
+          font-size: 13px;
+          color: white;
+          &:hover {
+            text-decoration: underline hsl(0, 1%, 69%, 50%) 1px;
+          }
+        }
+      }
+    }
+  }
+}

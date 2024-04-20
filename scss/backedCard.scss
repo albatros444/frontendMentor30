@@ -1,0 +1,51 @@
+.backedCard {
+  width: 730px;
+  height: 210px;
+  margin: 0 auto 24px;
+  padding: 46px;
+  border-radius: 8px;
+  border: 1px solid hsl(0, 0%, 95%);
+  background-color: white;
+  .box1 {
+    display: flex;
+    margin-bottom: 48px;
+    div {
+      p:first-child {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      p:last-child {
+        font-size: 15px;
+        color: var(--dGray);
+      }
+    }
+    .border {
+      height: 65px;
+      border-right: 1px solid hsl(0, 0%, 85%);
+    }
+    .backed {
+      width: 180px;
+    }
+    .backers {
+      width: 226px;
+      padding-left: 47px;
+    }
+    .daysLeft {
+      padding-left: 47px;
+    }
+  }
+  .progressBar {
+    width: 0%;
+    height: 12px;
+    border-radius: 6px;
+    background-color: var(--modCyan);
+  }
+  .progressBarBackgr {
+    width: 100%;
+    height: 12px;
+    margin-top: -12px;
+    border-radius: 6px;
+    background-color: hsl(0, 0%, 95%);
+  }
+}

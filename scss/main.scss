@@ -1,2 +1,27 @@
 @import "globals";
 @import "attribution";
+@import "hero";
+@import "variables";
+@import "monRiserCard";
+@import "backedCard";
+@import "aboutCard";
+@import "mainModal";
+
+body {
+  background-color: var(--lGray);
+  overflow: auto;
+}
+
+.fboxCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fboxExpand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.noHover {
+  pointer-events: none;
+}
