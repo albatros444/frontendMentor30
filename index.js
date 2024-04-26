@@ -16,6 +16,7 @@ const beStandCardCount = document.querySelector(".BEstandCardCount");
 const bambooStandCartCount = document.querySelector(".bambooStandCardCount");
 const beStandCount = document.querySelector(".beStandCount");
 const bambooStandCount = document.querySelector(".bambooStandCount");
+const navbar = document.querySelector(".navbar");
 
 ///////////pledge inputs and buttons////////
 const min0input = document.querySelector(".pledgeMin0input");
@@ -25,6 +26,9 @@ const min25button = document.querySelector(".pledgeMin25button");
 const min75input = document.querySelector(".pledgeMin75input");
 const min75button = document.querySelector(".pledgeMin75button");
 //////////////////////
+const hamburger = document.querySelector(".hamburger");
+const darkHamBackgr = document.querySelector(".darkHamBackgr");
+const hamModal = document.querySelector(".hamModal");
 
 ////variables/////////
 let backedCount = 89914;
@@ -85,6 +89,7 @@ min0button.addEventListener("click", (e) => {
   backersCount.innerText = formatNumber(backersPlus1);
   closeModal();
   thanksModaldarkBackgr.style.display = "flex";
+  closeModal();
 });
 
 min25button.addEventListener("click", (e) => {
@@ -104,6 +109,7 @@ min25button.addEventListener("click", (e) => {
   backersCount.innerText = formatNumber(backersPlus1);
   closeModal();
   thanksModaldarkBackgr.style.display = "flex";
+  closeModal();
 });
 
 min75button.addEventListener("click", (e) => {
@@ -123,6 +129,7 @@ min75button.addEventListener("click", (e) => {
   backersCount.innerText = formatNumber(backersPlus1);
   closeModal();
   thanksModaldarkBackgr.style.display = "flex";
+  closeModal();
 });
 
 gotItButton.addEventListener("click", () => {
@@ -139,4 +146,19 @@ bookmarkButton.addEventListener("click", () => {
     bookmarkButtonText.innerText = "Bookmarked";
     localStorage.setItem("bookmarked", true);
   }
+});
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("hamOpen");
+  darkHamBackgr.classList.toggle("hamMenuOpen");
+  navbar.classList.toggle("z200");
+});
+/////////////close hamburger modal on backgr click/////////
+darkHamBackgr.addEventListener("click", () => {
+  hamburger.classList.remove("hamOpen");
+  darkHamBackgr.classList.remove("hamMenuOpen");
+  navbar.classList.remove("z200");
+});
+hamModal.addEventListener("click", (e) => {
+  e.stopPropagation();
 });

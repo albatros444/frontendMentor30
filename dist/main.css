@@ -59,25 +59,34 @@ ul {
 }
 
 .hero {
+  position: relative;
   height: 400px;
   background: url(/images/image-hero-desktop.jpg);
 }
 .hero .shadowLinear {
+  position: absolute;
   height: 130px;
+  width: 100%;
   background: linear-gradient(hsla(0, 0%, 0%, 0.6), transparent);
 }
-.hero .shadowLinear .navbar {
+.hero .navbar {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
   padding: 48px 165px 0;
 }
-.hero .shadowLinear .navbar .links {
+.hero .navbar .links {
   width: 225px;
 }
-.hero .shadowLinear .navbar .links a {
+.hero .navbar .links a {
   font-size: 13px;
   color: white;
 }
-.hero .shadowLinear .navbar .links a:hover {
+.hero .navbar .links a:hover {
   text-decoration: underline hsla(0, 1%, 69%, 0.5) 1px;
+}
+.hero .navbar .hamburger {
+  display: none;
 }
 
 html {
@@ -112,7 +121,8 @@ html {
   margin-bottom: 40px;
 }
 .monRiserCard__box {
-  width: 632px;
+  padding-left: 47px;
+  padding-right: 47px;
   margin: 0 auto;
 }
 .monRiserCard__box button {
@@ -340,6 +350,7 @@ html {
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 100;
   background-color: hsla(0, 0%, 0%, 0.5);
 }
 
@@ -387,6 +398,12 @@ html {
   opacity: 1;
   height: 95px;
   padding: 27px;
+}
+.mainModalDarkBgr .mainModal .modalCard:has(input:checked) .pledgeEnter .fbox4 {
+  display: flex;
+}
+.mainModalDarkBgr .mainModal .modalCard:has(input:checked) .pledgeEnter p {
+  display: block;
 }
 .mainModalDarkBgr .mainModal .modalCard .topBox {
   padding: 30px 20px 0 27px;
@@ -438,19 +455,8 @@ html {
   border-color: #eeeded;
   background: #ffffff;
 }
-.mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .fbox3 {
-  padding-bottom: 6px;
-  margin-right: 5px;
-}
-.mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .fbox3 p:first-child {
-  font-weight: 700;
-  font-size: 18px;
-}
-.mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .fbox3 p:last-child {
-  margin-left: 10px;
-  padding-bottom: 1px;
-  font-size: 15px;
-  color: var(--dGray);
+.mainModalDarkBgr .mainModal .modalCard .topBox .mobileVersion {
+  display: none;
 }
 .mainModalDarkBgr .mainModal .modalCard .topBox .modalCardText {
   margin-left: 50px;
@@ -469,9 +475,11 @@ html {
   transition: all 0.1s ease-in-out;
 }
 .mainModalDarkBgr .mainModal .modalCard .pledgeEnter p {
+  display: none;
   color: var(--dGray);
 }
 .mainModalDarkBgr .mainModal .modalCard .pledgeEnter .fbox4 {
+  display: none;
   width: 220px;
 }
 .mainModalDarkBgr .mainModal .modalCard .pledgeEnter .fbox4 .inputBox {
@@ -526,14 +534,30 @@ html {
 .mainModalDarkBgr .mainModal .disabled .topBox .fbox2 .radioBox input[type=radio] + .radio-label span {
   color: hsl(176, 40%, 77%);
 }
-.mainModalDarkBgr .mainModal .disabled .topBox .fbox2 .fbox3 p:first-child {
-  color: var(--dGray);
-}
-.mainModalDarkBgr .mainModal .disabled .topBox .fbox2 .fbox3 p:last-child {
-  color: hsl(0, 0%, 78%);
-}
 .mainModalDarkBgr .mainModal .disabled .topBox .modalCardText {
   color: hsl(0, 0%, 68%);
+}
+
+.fbox3 {
+  padding-bottom: 6px;
+  margin-right: 5px;
+}
+.fbox3 p:first-child {
+  font-weight: 700;
+  font-size: 18px;
+}
+.fbox3 p:last-child {
+  margin-left: 10px;
+  padding-bottom: 1px;
+  font-size: 15px;
+  color: var(--dGray);
+}
+
+.disabled .fbox3 p:first-child {
+  color: var(--dGray);
+}
+.disabled .fbox3 p:last-child {
+  color: hsl(0, 0%, 78%);
 }
 
 .thanksModaldarkBackgr {
@@ -547,8 +571,9 @@ html {
   text-align: center;
   background-color: white;
 }
-.thanksModaldarkBackgr .thanksModal img {
+.thanksModaldarkBackgr .thanksModal svg {
   height: 90px;
+  width: 90px;
   margin-top: 50px;
   margin-bottom: 48px;
 }
@@ -601,6 +626,287 @@ body {
 
 .noHover {
   pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    height: 300px;
+    background: url(/images/image-hero-mobile.jpg) center/cover;
+  }
+  .hero .navbar {
+    padding: 30px 24px;
+  }
+  .hero .navbar .links {
+    display: none;
+  }
+  .hero .navbar .hamburger {
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .hero .navbar .hamburger .line {
+    width: 16px;
+    height: 3px;
+    background-color: #ecf0f1;
+    display: block;
+    margin: 3px auto;
+    transition: all 0.2s ease-in-out;
+  }
+  .hero .navbar .hamOpen {
+    animation: smallbig 0.45s forwards;
+  }
+  .hero .navbar .hamOpen .line:nth-child(2) {
+    opacity: 0;
+  }
+  .hero .navbar .hamOpen .line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hero .navbar .hamOpen .line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .hero .z200 {
+    z-index: 200;
+  }
+  .hero .darkHamBackgr {
+    display: none;
+    justify-content: center;
+    align-items: start;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: hsla(0, 0%, 0%, 0.5);
+  }
+  .hero .darkHamBackgr .hamModal {
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    height: 215px;
+    border-radius: 10px;
+    margin-top: 90px;
+    background-color: white;
+  }
+  .hero .darkHamBackgr .hamModal .abox {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 23px;
+    border-bottom: 1px solid hsl(0, 0%, 92%);
+  }
+  .hero .darkHamBackgr .hamModal .abox:last-child {
+    border-bottom: none;
+  }
+  .hero .darkHamBackgr .hamModal .abox a {
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .hero .hamMenuOpen {
+    display: flex;
+  }
+  .monRiserCard {
+    width: auto;
+    min-width: 325px;
+    height: 283px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 23px;
+  }
+  .monRiserCard h1 {
+    width: 250px;
+    margin: 30px auto 15px;
+    padding-top: 0;
+    font-size: 20px;
+  }
+  .monRiserCard p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .monRiserCard__box {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .monRiserCard__box .backProjButton {
+    width: 213px;
+  }
+  .monRiserCard__box .bookmarkButton {
+    width: 56px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .monRiserCard__box .bookmarkButton p {
+    display: none;
+  }
+  .backedCard {
+    width: auto;
+    height: 410px;
+    min-width: 325px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 35px;
+  }
+  .backedCard .box1 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .backedCard .box1 .border {
+    width: 80px;
+    height: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid hsl(0, 0%, 85%);
+  }
+  .backedCard .box1 .backed {
+    width: auto;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .backedCard .box1 .backers {
+    width: auto;
+    padding-left: 0;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .backedCard .box1 .daysLeft {
+    padding-left: 0;
+    text-align: center;
+  }
+  @keyframes smallbig {
+    0%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+    }
+  }
+  .aboutCard {
+    width: 325px;
+    height: auto;
+    padding: 35px 25px;
+    margin: 0 auto 80px;
+  }
+  .aboutCard .cardTitle {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+  .aboutCard .boxForTexts {
+    font-size: 14px;
+    margin-bottom: 35px;
+  }
+  .aboutCard .boxForTexts .modalCardText {
+    margin-bottom: 20px;
+  }
+  .aboutCard .pledgeCard {
+    padding: 22px;
+  }
+  .aboutCard .pledgeCard .fbox1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aboutCard .pledgeCard .fbox1 h3 {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .aboutCard .pledgeCard .fbox1 p {
+    font-size: 14px;
+  }
+  .aboutCard .pledgeCard .description {
+    font-size: 14px;
+  }
+  .aboutCard .pledgeCard .fbox2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aboutCard .pledgeCard .fbox2 .fbox3 {
+    margin-bottom: 20px;
+  }
+  .mainModalDarkBgr {
+    align-items: flex-start;
+    overflow-y: scroll;
+    padding-top: 120px;
+  }
+  .mainModalDarkBgr .mainModal {
+    width: 327px;
+    max-height: none;
+    padding: 25px;
+    margin-bottom: 120px;
+  }
+  .mainModalDarkBgr .mainModal .fbox1 h2 {
+    font-size: 19px;
+  }
+  .mainModalDarkBgr .mainModal .fbox1 .closeModalIcon {
+    top: 7px;
+    right: 0px;
+  }
+  .mainModalDarkBgr .mainModal .modalText {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard:has(input:checked) .pledgeEnter {
+    height: 140px;
+    padding: 20px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .desktopVersion {
+    display: none;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .mobileVersion {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 25px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .radioBox {
+    margin-bottom: 15px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .radioBox .radio-label {
+    font-size: 14px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .fbox2 .radioBox .radio-label span {
+    margin-top: 5px;
+    display: block;
+    padding-left: 32px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .topBox .modalCardText {
+    margin-left: 0;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .pledgeEnter {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .mainModalDarkBgr .mainModal .modalCard .pledgeEnter p {
+    margin-bottom: 20px;
+  }
+  .thanksModaldarkBackgr .thanksModal {
+    width: 327px;
+    height: 382px;
+    padding: 0 20px;
+  }
+  .thanksModaldarkBackgr .thanksModal svg {
+    height: 65px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+  .thanksModaldarkBackgr .thanksModal svg path {
+    stroke-width: 5;
+  }
+  .thanksModaldarkBackgr .thanksModal h3 {
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .thanksModaldarkBackgr .thanksModal p {
+    font-size: 14px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

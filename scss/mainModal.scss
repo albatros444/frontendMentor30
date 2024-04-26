@@ -7,6 +7,7 @@
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 100;
   background-color: hsl(0, 0%, 0%, 50%);
 }
 .mainModalDarkBgr {
@@ -52,6 +53,12 @@
           opacity: 1;
           height: 95px;
           padding: 27px;
+          .fbox4 {
+            display: flex;
+          }
+          p {
+            display: block;
+          }
         }
       }
       .topBox {
@@ -118,20 +125,9 @@
 
             /// ///////////
           }
-          .fbox3 {
-            padding-bottom: 6px;
-            margin-right: 5px;
-            p:first-child {
-              font-weight: 700;
-              font-size: 18px;
-            }
-            p:last-child {
-              margin-left: 10px;
-              padding-bottom: 1px;
-              font-size: 15px;
-              color: var(--dGray);
-            }
-          }
+        }
+        .mobileVersion {
+          display: none;
         }
         .modalCardText {
           margin-left: 50px;
@@ -152,9 +148,11 @@
         transition: all 0.1s ease-in-out;
 
         p {
+          display: none;
           color: var(--dGray);
         }
         .fbox4 {
+          display: none;
           width: 220px;
           .inputBox {
             position: relative;
@@ -216,19 +214,36 @@
               }
             }
           }
-          .fbox3 {
-            p:first-child {
-              color: var(--dGray);
-            }
-            p:last-child {
-              color: hsl(0, 0%, 78%);
-            }
-          }
         }
         .modalCardText {
           color: hsl(0, 0%, 68%);
         }
       }
+    }
+  }
+}
+
+.fbox3 {
+  padding-bottom: 6px;
+  margin-right: 5px;
+  p:first-child {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  p:last-child {
+    margin-left: 10px;
+    padding-bottom: 1px;
+    font-size: 15px;
+    color: var(--dGray);
+  }
+}
+.disabled {
+  .fbox3 {
+    p:first-child {
+      color: var(--dGray);
+    }
+    p:last-child {
+      color: hsl(0, 0%, 78%);
     }
   }
 }
@@ -243,8 +258,9 @@
     border-radius: 10px;
     text-align: center;
     background-color: white;
-    img {
+    svg {
       height: 90px;
+      width: 90px;
       margin-top: 50px;
       margin-bottom: 48px;
     }
