@@ -4,8 +4,7 @@
   border-radius: 10px;
   background-color: white;
   margin: 0 auto 125px;
-  padding: 45px;
-  padding-top: 47px;
+  padding: 47px;
   border: 1px solid hsl(0, 0%, 95%);
   border-radius: 8px;
 
@@ -14,9 +13,9 @@
     margin-bottom: 35px;
   }
   .boxForTexts {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
     .modalCardText {
-      line-height: 1.9;
+      line-height: 1.87;
       color: hsl(0, 0%, 48%);
       margin-bottom: 30px;
     }
@@ -30,13 +29,17 @@
     border-radius: 7px;
 
     .fbox1 {
-      margin-bottom: 23px;
+      margin-bottom: 20px;
       h3 {
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
       p {
         font-size: 16px;
         letter-spacing: -0.04em;
         font-weight: 500;
+        line-height: 1.9;
         color: var(--modCyan);
       }
     }
@@ -46,6 +49,7 @@
       color: hsl(0, 0%, 48%);
     }
     .fbox2 {
+      align-items: center;
       .fbox3 {
         p:first-child {
           margin-right: 8px;

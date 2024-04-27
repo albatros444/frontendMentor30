@@ -14,8 +14,10 @@
   .mainModal {
     display: block;
     max-height: calc(100vh - 50px);
-    width: 730px;
+    max-width: 730px;
     padding: 47px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 8px;
     background-color: white;
     overflow-y: auto;
@@ -62,7 +64,7 @@
         }
       }
       .topBox {
-        padding: 30px 20px 0 27px;
+        padding: 32px 20px 0 27px;
 
         .fbox2 {
           display: flex;
@@ -76,6 +78,7 @@
                 cursor: pointer;
                 transition: all 0.12s ease-in-out;
                 span {
+                  // display: inline-block;
                   margin-left: 15px;
                   font-weight: 500;
                   color: var(--modCyan);
@@ -131,7 +134,7 @@
         }
         .modalCardText {
           margin-left: 50px;
-          margin-top: 12px;
+          margin-top: 10px;
           margin-bottom: 30px;
           font-size: 15px;
           letter-spacing: 0.005em;
@@ -144,11 +147,12 @@
         opacity: 0;
         height: 0;
         padding: 0;
-        border-top: 1px solid hsl(0, 1%, 85%);
+        border-top: 2px solid hsl(0, 1%, 92%);
         transition: all 0.1s ease-in-out;
 
         p {
           display: none;
+          font-size: 15px;
           color: var(--dGray);
         }
         .fbox4 {
@@ -163,8 +167,9 @@
               padding-bottom: 2px;
               border-radius: 24px;
               border: 1px solid hsl(0, 0%, 88%);
-              font-weight: 600;
+              font-weight: 700;
               color: black;
+              caret-color: var(--dCyan);
               &:focus {
                 border: 1px solid var(--modCyan);
               }
@@ -223,7 +228,7 @@
   }
 }
 
-.fbox3 {
+.modalfbox3 {
   padding-bottom: 6px;
   margin-right: 5px;
   p:first-child {
@@ -238,7 +243,7 @@
   }
 }
 .disabled {
-  .fbox3 {
+  .modalfbox3 {
     p:first-child {
       color: var(--dGray);
     }
@@ -262,7 +267,7 @@
       height: 90px;
       width: 90px;
       margin-top: 50px;
-      margin-bottom: 48px;
+      margin-bottom: 46px;
     }
     h3 {
       font-size: 24px;
@@ -271,7 +276,7 @@
     p {
       line-height: 1.8;
       color: var(--dGray);
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
     button {
       display: inline-block;

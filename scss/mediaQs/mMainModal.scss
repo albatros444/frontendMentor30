@@ -6,14 +6,17 @@
   .mainModal {
     width: 327px;
     max-height: none;
-    padding: 25px;
+    padding: 24px;
+    padding-top: 30px;
     margin-bottom: 120px;
     .fbox1 {
+      margin-bottom: 25px;
       h2 {
         font-size: 19px;
+        letter-spacing: -0.02em;
       }
       .closeModalIcon {
-        top: 7px;
+        top: 5px;
         right: 0px;
       }
     }
@@ -44,7 +47,6 @@
             margin-bottom: 15px;
             .radio-label {
               font-size: 14px;
-
               span {
                 margin-top: 5px;
                 display: block;
